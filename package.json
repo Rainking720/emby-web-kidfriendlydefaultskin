@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "Kid friendly version of the default Emby skin.",
     "plugin": "plugin.js",
-    "homepage": "https://github.com/MediaBrowser/emby-web-defaultskin",
+    "homepage": "https://github.com/Rainking720/emby-web-kidfriendlydefaultskin",
     "thumb": "",
     "backdrop": ""
 }
