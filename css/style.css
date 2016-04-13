@@ -568,7 +568,7 @@ paper-slider:hover #sliderKnob {
 
 
 paper-slider.noKnob #sliderKnob {
-    display: none;
+    display: block;
 }
 
 paper-slider.noKnob:hover #sliderKnob {
