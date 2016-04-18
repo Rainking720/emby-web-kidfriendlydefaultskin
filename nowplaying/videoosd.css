@@ -52,11 +52,11 @@
 }
 
 .mouseIdle .videoOsdBottom .volumeButtons {
-    display: none;
+    display: block;
 }
 
 .osdPoster {
-    width: 10%;
+    width: 15%;
     position: relative;
     margin-right: .5em;
 }
@@ -83,6 +83,23 @@
 .osdTitle {
     margin: 0;
     padding-left: .4em;
+}
+
+.osdVolumeLevelText {
+    margin: 0;
+    padding-left: .4em;
+    padding-right: .4em;
+    padding-bottom: .1em;
+    color: rgb(184, 191, 198);
+    font-size: 150%;
+    text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background: #264F23;
+    border-radius: 50%;
+    vertical-align: middle;
+    font-weight: bold;
+	width: 65px;
+	display: inline-block;
+	text-align: center;
 }
 
 .osdPlaylistPosition {

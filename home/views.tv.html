@@ -1,45 +1,24 @@
 <div class="horizontalSection">
     <div class="sectionTitle">&nbsp;</div>
     <div>
-        <button type="button" class="card block wideSpotlightCard noScale">
-            <div class="cardImageContainer coveredImage cardBox noScale">
+        <button type="button" class="card backdropCard allSeriesCard  noScale" data-type="allseries">
+            <div class="cardImageContainer coveredImage cardBox noScale" style="height:42vh;width:35vw">
+
                 <div class="cardImage"></div>
 
-
                 <div class="innerCardFooter">
-                    <div class="cardText"></div>
+                    <div class="cardText">${AllSeries}</div>
                 </div>
             </div>
         </button>
-        <!--<div style="display: flex;width: 800px;">-->
         <div class="horizontalItemsContainer">
-            <button type="button" class="card backdropCard allSeriesCard" data-type="allseries">
+            <button type="button" class="card block wideSpotlightCard noScale">
                 <div class="cardImageContainer coveredImage cardBox noScale">
-
                     <div class="cardImage"></div>
 
-                    <div class="innerCardFooter">
-                        <div class="cardText">${AllSeries}</div>
-                    </div>
-                </div>
-            </button>
-            <!--<button type="button" class="card backdropCard tvFavoritesCard" data-type="genres">
-                <div class="cardImageContainer coveredImage cardBox noScale">
-
-                    <div class="cardImage"></div>
 
                     <div class="innerCardFooter">
-                        <div class="cardText">${Favorites}</div>
-                    </div>
-                </div>
-            </button>-->
-            <button type="button" class="card squareCard tvUpcomingCard" data-type="genres">
-                <div class="cardImageContainer coveredImage cardBox noScale">
-
-                    <iron-icon class="cardImageIcon" icon="date-range"></iron-icon>
-
-                    <div class="innerCardFooter">
-                        <div class="cardText">${Upcoming}</div>
+                        <div class="cardText"></div>
                     </div>
                 </div>
             </button>

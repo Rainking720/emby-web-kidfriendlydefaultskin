@@ -57,10 +57,12 @@ define(['loading', './../skininfo', 'datetime', 'playbackManager', 'imageLoader'
         }
 
         function renderName(view, item) {
-
+            itemTitle
             var itemTitle = view.querySelector('.itemTitle');
 
             if (item.Type == 'BoxSet') {
+                itemTitle.classList.add('hide');
+            } else if (item.Type == 'Series') {
                 itemTitle.classList.add('hide');
             } else {
                 itemTitle.classList.remove('hide');
@@ -330,7 +332,7 @@ define(['loading', './../skininfo', 'datetime', 'playbackManager', 'imageLoader'
                 overviewElem.classList.add('hide');
             }
 
-            if (item.LocalTrailerCount) {
+            if (Emby.Models.hasTrailer(item)) {
                 view.querySelector('.btnTrailer').classList.remove('hide');
             } else {
                 view.querySelector('.btnTrailer').classList.add('hide');
@@ -352,22 +354,22 @@ define(['loading', './../skininfo', 'datetime', 'playbackManager', 'imageLoader'
                 view.querySelector('.mainSection .itemPageButtons').classList.remove('hide');
             }
 
-            var mediaInfoHtml = item.Type == 'Season' || item.Type == 'BoxSet' ? '' : mediaInfo.getMediaInfoHtml(item);
             var mediaInfoElem = view.querySelector('.mediaInfo');
 
-            if (!mediaInfoHtml) {
+            if (item.Type == 'Season' || item.Type == 'BoxSet') {
                 mediaInfoElem.classList.add('hide');
             } else {
                 mediaInfoElem.classList.remove('hide');
-                mediaInfoElem.innerHTML = mediaInfoHtml;
+                mediaInfo.fill(mediaInfoElem, item);
             }
 
             var genres = item.Genres || [];
-            var genresHtml = genres.map(function (i) {
+            var genresHtml = null;
+            //var genresHtml = genres.map(function (i) {
 
-                return i;
+            //    return i;
 
-            }).join('<span class="bulletSeparator"> &bull; </span>');
+            //}).join('<span class="bulletSeparator"> &bull; </span>');
 
             var genresElem = view.querySelector('.genres')
 
@@ -841,8 +843,8 @@ define(['loading', './../skininfo', 'datetime', 'playbackManager', 'imageLoader'
             var showTitle = false;
 
             if (item.Type == "Series") {
-                headerText.innerHTML = Globalize.translate('Seasons');
-                headerText.classList.remove('hide');
+                //headerText.innerHTML = Globalize.translate('Seasons');
+                //headerText.classList.remove('hide');
 
             } else if (item.Type == "MusicArtist") {
                 headerText.innerHTML = Globalize.translate('Albums');
@@ -951,6 +953,8 @@ define(['loading', './../skininfo', 'datetime', 'playbackManager', 'imageLoader'
         function renderScenes(view, item) {
 
             var section = view.querySelector('.scenesSection');
+            section.classList.add('hide');
+            return;
 
             Emby.Models.chapters(item, {
                 images: [
@@ -1129,20 +1133,22 @@ define(['loading', './../skininfo', 'datetime', 'playbackManager', 'imageLoader'
             });
 
             function playTrailer() {
-                playbackManager.playTrailer(currentItem);
+                playbackManager.playTrailers(currentItem);
             }
 
             function play() {
-
-                if (currentItem.IsFolder) {
-                    playbackManager.play({
-                        items: [currentItem]
-                    });
-                } else {
-                    require(['playmenu'], function (playmenu) {
-                        playmenu.show(currentItem);
-                    });
-                }
+                require(['playmenu'], function (playmenu) {
+                    playmenu.show(currentItem);
+                });
+                //if (currentItem.IsFolder) {
+                //    playbackManager.play({
+                //        items: [currentItem]
+                //    });
+                //} else {
+                //    require(['playmenu'], function (playmenu) {
+                //        playmenu.show(currentItem);
+                //    });
+                //}
             }
 
             function queue() {
@@ -1157,7 +1163,9 @@ define(['loading', './../skininfo', 'datetime', 'playbackManager', 'imageLoader'
             }
 
             function shuffle() {
-                playbackManager.shuffle(currentItem);
+                require(['playmenu'], function (playmenu) {
+                    playmenu.show(currentItem, true);
+                });
             }
         }
     });

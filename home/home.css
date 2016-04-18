@@ -3,5 +3,21 @@
 }
 
     .wideSpotlightCard .cardImageContainer {
+        height: 22.23vh;
+    }
+
+.allSeriesCard {
+    width: 100%;
+}
+
+    .allSeriesCard .cardImageContainer {
+        height: 44.23vh;
+    }
+
+.allMoviesCard {
+    width: 100%;
+}
+
+    .allMoviesCard .cardImageContainer {
         height: 44.23vh;
     }

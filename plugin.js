@@ -1,4 +1,4 @@
-define(['playbackManager', 'pluginManager', 'browser', 'connectionManager'], function (playbackManager, pluginManager, browser, connectionManager) {
+define(['playbackManager', 'pluginManager', 'browser', 'connectionManager', 'events'], function (playbackManager, pluginManager, browser, connectionManager, Events) {
 
     function updateClock() {
 
@@ -81,6 +81,7 @@ define(['playbackManager', 'pluginManager', 'browser', 'connectionManager'], fun
             list.push('paper-icon-button');
 
             // Needed by the header
+            list.push('iron-icon-set');
             list.push('html!' + pluginManager.mapPath(self, 'icons.html'));
 
             return list;
@@ -90,7 +91,7 @@ define(['playbackManager', 'pluginManager', 'browser', 'connectionManager'], fun
 
             var files = [];
 
-            var languages = ['en-US', 'de', 'fr', 'nl', 'pt-BR', 'pt-PT', 'ru', 'sv'];
+            var languages = ['de', 'en-GB', 'en-US', 'fr', 'it', 'nl', 'pt-BR', 'pt-PT', 'ru', 'sv'];
 
             return languages.map(function (i) {
                 return {
@@ -234,27 +235,39 @@ define(['playbackManager', 'pluginManager', 'browser', 'connectionManager'], fun
             return routes;
         };
 
+        function onUserDataChanged(e, apiClient, userData) {
+            require([self.id + '/cards/cardbuilder'], function (cardbuilder) {
+                cardbuilder.onUserDataChanged(userData);
+            });
+        }
+
         var clockInterval;
         self.load = function () {
 
             updateClock();
             setInterval(updateClock, 50000);
             bindEvents();
+
+            require(['serverNotifications'], function (serverNotifications) {
+
+                Events.on(serverNotifications, 'UserDataChanged', onUserDataChanged);
+            });
         };
 
         self.unload = function () {
 
-            unbindEvents();
-
-            if (clockInterval) {
-                clearInterval(clockInterval);
-                clockInterval = null;
-            }
-
             return new Promise(function (resolve, reject) {
 
-                require([settingsObjectName], function (skinSettings) {
+                unbindEvents();
 
+                if (clockInterval) {
+                    clearInterval(clockInterval);
+                    clockInterval = null;
+                }
+
+                require([settingsObjectName, 'serverNotifications'], function (skinSettings, serverNotifications) {
+
+                    Events.off(serverNotifications, 'UserDataChanged', onUserDataChanged);
                     skinSettings.unload();
                     resolve();
                 });

@@ -176,11 +176,11 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../cards/cardbuilder', 
                 loadLatest(element, parentId)
             ];
 
-            if (!isRefresh) {
-                promises.push(loadRecommendations(element, parentId));
-            }
+            //if (!isRefresh) {
+            //    promises.push(loadRecommendations(element, parentId));
+            //}
 
-            return promises;
+            return Promise.all(promises);
         };
 
         loadSpotlight(element, parentId);
@@ -198,7 +198,7 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../cards/cardbuilder', 
         //    Emby.Page.show(Emby.PluginManager.mapRoute(skinInfo.id, 'movies/movies.html?tab=favorites&parentid=' + parentId));
         //});
 
-        itemShortcuts.on(element.querySelector('.recommendations'));
+        //itemShortcuts.on(element.querySelector('.recommendations'));
 
         self.destroy = function () {
 

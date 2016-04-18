@@ -708,8 +708,22 @@ define(['datetime', './../skininfo', 'imageLoader', 'connectionManager', 'plugin
             }
         }
 
+        function updateCardUserData(card, userData) {
+
+        }
+
+        function onUserDataChanged(userData) {
+
+            var card = document.querySelector('.card[data-id="' + userData.ItemId + '"]');
+
+            if (card) {
+                updateCardUserData(card, userData);
+            }
+        }
+
         return {
             buildCardsHtml: buildCardsHtml,
-            buildCards: buildCards
+            buildCards: buildCards,
+            onUserDataChanged: onUserDataChanged
         };
     });

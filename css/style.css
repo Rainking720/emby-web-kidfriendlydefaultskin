@@ -20,7 +20,8 @@ a {
     display: inline-block;
     vertical-align: middle;
     margin: 0;
-    height: 5.6vh;
+    height: 9.6vh;
+    text-transform: capitalize;
 }
 
 .pageTitleWithLogo {
@@ -387,7 +388,7 @@ paper-item-body .overview {
     white-space: nowrap;
     max-width: 100%;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis;	
 }
 
 .verticalItemsContainer {
@@ -491,10 +492,9 @@ paper-slider:hover #sliderKnob {
 
 .playlistPageContainer {
     display: block;
-    width: 66%;
-    margin: 1em auto 0;
+    width: 70%;
+    margin: 0 auto 0;
     bottom: 0;
-    top: 12%;
 }
 
 .playlistIndexIndicatorImage {

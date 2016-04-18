@@ -32,7 +32,7 @@ a {
     border-bottom-color: rgb(115, 115, 115) !important;
 }
 
-paper-input label, paper-checkbox label, emby-dropdown-menu label {
+paper-input label, paper-checkbox label, emby-dropdown-menu label, paper-textarea label {
     color: #bbb !important;
 }
 
@@ -90,7 +90,7 @@ paper-input label, paper-checkbox label, emby-dropdown-menu label {
 }
 
 .dialog {
-    background-color: rgba(28,28,28,.94) !important;
+    background-color: rgba(28,28,28,1) !important;
     color: #fff !important;
 }
 

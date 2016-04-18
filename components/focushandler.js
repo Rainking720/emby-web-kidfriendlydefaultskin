@@ -1,4 +1,4 @@
-define(['imageLoader', 'itemHelper', 'backdrop', 'mediaInfo', 'focusManager', 'scrollHelper', 'browser'], function (imageLoader, itemHelper, backdrop, mediaInfo, focusManager, scrollHelper, browser) {
+define(['imageLoader', 'itemHelper', 'backdrop', 'mediaInfo', 'focusManager', 'scrollHelper', 'browser', 'layoutManager'], function (imageLoader, itemHelper, backdrop, mediaInfo, focusManager, scrollHelper, browser, layoutManager) {
 
     function focusHandler(options) {
 
@@ -26,6 +26,10 @@ define(['imageLoader', 'itemHelper', 'backdrop', 'mediaInfo', 'focusManager', 's
 
         var enableAnimations = function() {
             
+            if (!layoutManager.tv) {
+                return false;
+            }
+
             if (browser.animate) {
                 return true;
             }
