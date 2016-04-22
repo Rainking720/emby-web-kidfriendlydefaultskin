@@ -1,4 +1,4 @@
-define(['loading', 'alphapicker', './../components/horizontallist', './../components/tabbedpage', 'backdrop'], function (loading, alphaPicker, horizontalList, tabbedPage, backdrop) {
+define(['loading', 'alphapicker', './../components/horizontallist', './../components/tabbedpage', 'backdrop', './../components/listview', 'imageLoader', 'itemShortcuts', 'scroller', './../components/focushandler'], function (loading, alphaPicker, horizontalList, tabbedPage, backdrop, listview, imageLoader, itemShortcuts, scroller, focusHandler) {
 
     return function (view, params) {
 
@@ -8,7 +8,8 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
 
             if (!self.tabbedPage) {
                 loading.show();
-                renderTabs(view, params.tab, self, params);
+                //renderTabs(view, params.tab, self, params);
+                renderMovieList(view, params.tab, self, params);
             }
 
             Emby.Page.setTitle('');
@@ -26,6 +27,107 @@ define(['loading', 'alphapicker', './../components/horizontallist', './../compon
                 self.alphaPicker.destroy();
             }
         });
+
+        function createVerticalScroller(view, pageInstance) {
+
+            require(['scroller'], function (scroller) {
+
+                var scrollFrame = view.querySelector('.scrollFrame');
+
+                var options = {
+                    horizontal: 0,
+                    slidee: view.querySelector('.scrollSlider'),
+                    scrollBy: 200,
+                    speed: 270,
+                    scrollWidth: 50000,
+                    immediateSpeed: 100
+                };
+
+                pageInstance.verticalScroller = new scroller(scrollFrame, options);
+                pageInstance.verticalScroller.init();
+                initFocusHandler(view, pageInstance.verticalScroller);
+            });
+        }
+
+        function initFocusHandler(view, verticalScroller) {
+
+            var movieOverview = view.querySelector('.selectedItemOverview');
+            var moviePoster = view.querySelector('.selectedItemPoster');
+            var movieMediaInfo = view.querySelector('.selectedItemMediaInfo');
+            var selectedMovieTitle = view.querySelector('.selectedMovieTitle');
+            var selectedIndexElement = view.querySelector('.selectedIndex');
+
+            self.focusHandler = new focusHandler({
+                parent: view.querySelector('.scrollSlider'),
+                scroller: verticalScroller,
+                zoomScale: '1.10',
+                enableBackdrops: true,
+                selectedItemOverview: movieOverview,
+                selectedItemPoster: moviePoster,
+                selectedItemMediaInfo: movieMediaInfo,
+                selectedMovieTitle: selectedMovieTitle,
+                selectedIndexElement: selectedIndexElement
+                
+            });
+        }
+
+
+        function renderMovieList(view, initialTabId, pageInstance, params) {
+
+            createVerticalScroller(view, self);
+
+            var section = view.querySelector('.movieList');
+            var listCount = view.querySelector('.listCount');
+
+            Emby.Models.items({
+                StartIndex: 0,
+                Limit: 10000,
+                ParentId: params.parentid,
+                IncludeItemTypes: "Folder,Movie",
+                Recursive: false,
+                SortBy: "IsFolder,SortName",
+                Fields: "SortName"
+            })//Emby.Models.children(item, options)
+            .then(function (result) {
+
+                loading.hide();
+                //if (!result.Items.length) {
+                //    section.classList.add('hide');
+                //    return;
+                //}
+
+                section.classList.remove('hide');
+
+                //if (skinSettings.enableAntiSpoliers()) {
+
+                //    var isFirstUnseen = true;
+                //    result.Items.forEach(function (item) {
+
+                //        if (item.UserData && !item.UserData.Played) {
+
+                //            if (!isFirstUnseen) {
+                //                item.Overview = null;
+                //            }
+                //            isFirstUnseen = false;
+                //        }
+                //    });
+                //}
+
+                listCount.innerHTML = result.Items.length;
+
+                section.innerHTML = listview.getListViewHtml(result.Items, {
+                    showIndexNumber: false,
+                    enableOverview: false,
+                    isTitlesOnly: true,
+                    enableSideMediaInfo: false
+                });
+
+                imageLoader.lazyChildren(section);
+
+                itemShortcuts.off(section);
+                itemShortcuts.on(section);
+            });
+        }
 
         function renderTabs(view, initialTabId, pageInstance, params) {
 

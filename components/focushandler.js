@@ -1,4 +1,4 @@
-define(['imageLoader', 'itemHelper', 'backdrop', 'mediaInfo', 'focusManager', 'scrollHelper', 'browser', 'layoutManager'], function (imageLoader, itemHelper, backdrop, mediaInfo, focusManager, scrollHelper, browser, layoutManager) {
+define(['imageLoader', 'itemHelper', 'backdrop', 'mediaInfo', 'focusManager', 'scrollHelper', 'browser', 'layoutManager', './movieMediaInfo'], function (imageLoader, itemHelper, backdrop, mediaInfo, focusManager, scrollHelper, browser, layoutManager, movieMediaInfo) {
 
     function focusHandler(options) {
 
@@ -18,14 +18,19 @@ define(['imageLoader', 'itemHelper', 'backdrop', 'mediaInfo', 'focusManager', 's
         parent.addEventListener('focus', onFocusIn, true);
         parent.addEventListener('blur', onFocusOut, true);
 
+        var selectedItemOverview = options.selectedItemOverview;
+        var selectedItemPoster = options.selectedItemPoster;
+        var selectedItemMediaInfo = options.selectedItemMediaInfo;
+        var selectedMovieTitle = options.selectedMovieTitle;
+
         var selectedItemInfoInner = options.selectedItemInfoInner;
         var selectedIndexElement = options.selectedIndexElement;
         var selectedItemPanel;
 
         var enableSelectedItemPanel = options.selectedItemMode == 'panel';
 
-        var enableAnimations = function() {
-            
+        var enableAnimations = function () {
+
             if (!layoutManager.tv) {
                 return false;
             }
@@ -94,11 +99,12 @@ define(['imageLoader', 'itemHelper', 'backdrop', 'mediaInfo', 'focusManager', 's
             if (zoomTimeout) {
                 clearTimeout(zoomTimeout);
             }
-            zoomTimeout = setTimeout(onZoomTimeout, 50);
+            zoomTimeout = setTimeout(onZoomTimeout, 5);
             if (selectedMediaInfoTimeout) {
                 clearTimeout(selectedMediaInfoTimeout);
             }
-            var delay = enableSelectedItemPanel ? 2000 : 1200;
+            //var delay = enableSelectedItemPanel ? 2000 : 1200;
+            var delay = 100;
             selectedMediaInfoTimeout = setTimeout(onSelectedMediaInfoTimeout, delay);
         }
 
@@ -195,6 +201,51 @@ define(['imageLoader', 'itemHelper', 'backdrop', 'mediaInfo', 'focusManager', 's
                 slideInLeft(div);
                 return;
             }
+
+            if (selectedItemPoster) {
+
+                var imageUrl = Emby.Models.imageUrl(item, { maxWidth: 478.67 });
+
+                if (imageUrl) {
+                    selectedItemPoster.innerHTML = '';
+                    selectedItemPoster.style = 'background-image:url(\'' + imageUrl + '\');';
+                }
+
+                selectedItemMediaInfo.innerHTML = movieMediaInfo.getMediaInfoHtml(item);
+                if (item.Type == "Season") {
+                    //selectedItemMediaInfo.style.height = "230px";
+                    //selectedItemOverview.style.height = "600px";
+                }
+
+                if (item.Type == "Folder" || (item.Type == "Season" && (!item.Overview || item.Overview == ''))) {
+                    var counter = 1;
+
+                    if (item.Type == "Season") {
+                        selectedItemOverview.innerHTML = '';
+                    }
+                    else {
+                        selectedItemOverview.innerHTML = "<div>" + item.RecursiveItemCount + " Videos</div>";
+                    }
+                    Emby.Models.children(item, {}).then(function (result) {
+                        result.Items.forEach(function (childitem) {
+                            selectedItemOverview.innerHTML += "<div style='white-space: nowrap;overflow: hidden;text-overflow: ellipsis;'>&nbsp;&nbsp;" + counter + ". " + childitem.Name + "</div>";
+                            counter++;
+                        });
+                    });
+                }
+                else {
+                    if (item.Overview)
+                        selectedItemOverview.innerHTML = item.Overview;
+                    else
+                        selectedItemOverview.innerHTML = '';
+                }
+
+                selectedMovieTitle.innerHTML = item.Name;
+                if (item.ProductionYear)
+                    selectedMovieTitle.innerHTML += " (" + item.ProductionYear + ")";
+                return;
+            }
+
 
             if (!selectedItemInfoInner) {
                 return;

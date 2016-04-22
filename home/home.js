@@ -124,6 +124,8 @@ define(['loading', './../components/tabbedpage', 'backdrop', 'focusManager', 'pl
 
             var isRestored = e.detail.isRestored;
 
+            backdrop.clear();
+
             Emby.Page.setTitle('');
 
             if (isRestored) {

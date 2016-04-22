@@ -9,6 +9,7 @@ define(['itemHelper', 'mediaInfo', 'indicators', 'paper-icon-item', 'paper-item-
         var action = options.action || 'link';
 
         var isLargeStyle = options.imageSize == 'large';
+        var isTitlesOnly = options.isTitlesOnly;
         var enableOverview = options.enableOverview;
 
         outerHtml += items.map(function (item) {
@@ -17,32 +18,37 @@ define(['itemHelper', 'mediaInfo', 'indicators', 'paper-icon-item', 'paper-item-
 
             var cssClass = "itemAction";
 
-            var downloadWidth = 80;
+            var downloadWidth = 200;
 
             if (isLargeStyle) {
                 cssClass += " largeImage";
                 downloadWidth = 500;
             }
+            //else if (isTitlesOnly) {
+            //    cssClass += "hidden";
+            //}
 
             html += '<paper-icon-item class="' + cssClass + '" data-index="' + index + '" data-action="' + action + '" data-isfolder="' + item.IsFolder + '" data-id="' + item.Id + '"  data-serverid="' + item.ServerId + '" data-type="' + item.Type + '">';
 
-            var imgUrl = Emby.Models.imageUrl(item, {
-                width: downloadWidth,
-                type: "Primary"
-            });
-
-            if (!imgUrl) {
-                imgUrl = Emby.Models.thumbImageUrl(item, {
+            if (!isTitlesOnly) {
+                var imgUrl = Emby.Models.imageUrl(item, {
                     width: downloadWidth,
-                    type: "Thumb"
+                    type: "Primary"
                 });
+
+                if (!imgUrl && !isTitlesOnly) {
+                    imgUrl = Emby.Models.thumbImageUrl(item, {
+                        width: downloadWidth,
+                        type: "Thumb"
+                    });
+                }
+                if (imgUrl) {
+                    html += '<div class="paperIconItemImage lazy" data-src="' + imgUrl + '" item-icon>';
+                } else {
+                    html += '<div class="paperIconItemImage" item-icon>';
+                }
             }
 
-            if (imgUrl) {
-                html += '<div class="paperIconItemImage lazy" data-src="' + imgUrl + '" item-icon>';
-            } else {
-                html += '<div class="paperIconItemImage" item-icon>';
-            }
             html += indicators.getPlayedIndicatorHtml(item);
             var progressHtml = indicators.getProgressBarHtml(item);
 
@@ -76,11 +82,13 @@ define(['itemHelper', 'mediaInfo', 'indicators', 'paper-icon-item', 'paper-item-
             }
 
             var lineCount = textlines.length;
-            if (!options.enableSideMediaInfo) {
-                lineCount++;
-            }
-            if (enableOverview && item.Overview) {
-                lineCount++;
+            if (!isTitlesOnly) {
+                if (!options.enableSideMediaInfo) {
+                    lineCount++;
+                }
+                if (enableOverview && item.Overview) {
+                    lineCount++;
+                }
             }
 
             if (lineCount > 2) {
@@ -109,7 +117,7 @@ define(['itemHelper', 'mediaInfo', 'indicators', 'paper-icon-item', 'paper-item-
                 }
             }
 
-            if (!options.enableSideMediaInfo) {
+            if (!options.enableSideMediaInfo && !isTitlesOnly) {
                 html += '<div class="paperIconItemMediaInfo">' + mediaInfo.getMediaInfoHtml(item) + '</div>';
             }
 
@@ -121,7 +129,7 @@ define(['itemHelper', 'mediaInfo', 'indicators', 'paper-icon-item', 'paper-item-
 
             html += '</paper-item-body>';
 
-            if (options.enableSideMediaInfo) {
+            if (options.enableSideMediaInfo && !isTitlesOnly) {
                 html += '<div class="paperIconItemMediaInfo">' + mediaInfo.getMediaInfoHtml(item) + '</div>';
             }
 

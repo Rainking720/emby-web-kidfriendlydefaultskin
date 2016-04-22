@@ -1,6 +1,6 @@
-define(['./spotlight', 'imageLoader', 'focusManager', './../cards/cardbuilder', './../skininfo', 'itemShortcuts'], function (spotlight, imageLoader, focusManager, cardbuilder, skinInfo, itemShortcuts) {
+define(['./spotlight', 'imageLoader', 'focusManager', './../cards/cardbuilder', './../skininfo', 'itemShortcuts', 'backdrop'], function (spotlight, imageLoader, focusManager, cardbuilder, skinInfo, itemShortcuts, backdrop) {
 
-	function loadResume(element, parentId) {
+    function loadResume(element, parentId) {
 
         var options = {
 
@@ -165,7 +165,9 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../cards/cardbuilder', 
 
         var self = this;
 
-        if (autoFocus) {
+        backdrop.clear();
+
+        if (true) {//autoFocus) {
             focusManager.autoFocus(element);
         }
 
@@ -187,18 +189,8 @@ define(['./spotlight', 'imageLoader', 'focusManager', './../cards/cardbuilder', 
         loadImages(element, parentId);
 
         element.querySelector('.allMoviesCard').addEventListener('click', function () {
-            Emby.Page.show(Emby.PluginManager.mapRoute(skinInfo.id, 'movies/movies.html?parentid=' + parentId));
+            Emby.Page.show(Emby.PluginManager.mapRoute(skinInfo.id, 'detailList/detailList.html?parentid=' + parentId));
         });
-
-        //element.querySelector('.movieCollectionsCard').addEventListener('click', function () {
-        //    Emby.Page.show(Emby.PluginManager.mapRoute(skinInfo.id, 'movies/movies.html?tab=collections&parentid=' + parentId));
-        //});
-
-        //element.querySelector('.movieFavoritesCard').addEventListener('click', function () {
-        //    Emby.Page.show(Emby.PluginManager.mapRoute(skinInfo.id, 'movies/movies.html?tab=favorites&parentid=' + parentId));
-        //});
-
-        //itemShortcuts.on(element.querySelector('.recommendations'));
 
         self.destroy = function () {
 

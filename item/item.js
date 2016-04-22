@@ -332,11 +332,11 @@ define(['loading', './../skininfo', 'datetime', 'playbackManager', 'imageLoader'
                 overviewElem.classList.add('hide');
             }
 
-            if (Emby.Models.hasTrailer(item)) {
-                view.querySelector('.btnTrailer').classList.remove('hide');
-            } else {
+            //if (Emby.Models.hasTrailer(item)) {
+            //    view.querySelector('.btnTrailer').classList.remove('hide');
+            //} else {
                 view.querySelector('.btnTrailer').classList.add('hide');
-            }
+            //}
 
             if (playbackManager.canPlay(item)) {
                 view.querySelector('.itemPageFixedLeft .btnPlay').classList.remove('hide');

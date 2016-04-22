@@ -1,4 +1,4 @@
-define(['./spotlight', 'focusManager', './../cards/cardbuilder', './../skininfo', 'browser'], function (spotlight, focusManager, cardBuilder, skinInfo, browser) {
+define(['./spotlight', 'focusManager', './../cards/cardbuilder', './../skininfo', 'browser', 'backdrop'], function (spotlight, focusManager, cardBuilder, skinInfo, browser, backdrop) {
 
     function loadResume(element, parentId) {
 
@@ -143,7 +143,9 @@ define(['./spotlight', 'focusManager', './../cards/cardbuilder', './../skininfo'
 
         var self = this;
 
-        if (autoFocus) {
+        backdrop.clear();
+
+        if (true) {//autoFocus) {
             focusManager.autoFocus(element);
         }
 
@@ -160,16 +162,8 @@ define(['./spotlight', 'focusManager', './../cards/cardbuilder', './../skininfo'
         loadImages(element, parentId);
 
         element.querySelector('.allSeriesCard').addEventListener('click', function () {
-            Emby.Page.show(Emby.PluginManager.mapRoute(skinInfo.id, 'tv/tv.html?parentid=' + parentId));
+            Emby.Page.show(Emby.PluginManager.mapRoute(skinInfo.id, 'detailList/detailList.html?parentid=' + parentId));
         });
-
-        //element.querySelector('.tvUpcomingCard').addEventListener('click', function () {
-        //    Emby.Page.show(Emby.PluginManager.mapRoute(skinInfo.id, 'tv/tv.html?tab=upcoming&parentid=' + parentId));
-        //});
-
-        //element.querySelector('.tvFavoritesCard').addEventListener('click', function () {
-        //    Emby.Page.show(Emby.PluginManager.mapRoute(skinInfo.id, 'tv/tv.html?tab=favorites&parentid=' + parentId));
-        //});
 
         self.destroy = function () {
 

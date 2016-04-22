@@ -1,594 +1,837 @@
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .hide {
-    display: none !important;
+	display: none !important;
 }
 
 .headerLogo {
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 6.9vw;
-    height: 3.7vh;
-    vertical-align: middle;
-    display: inline-block;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 6.9vw;
+	height: 3.7vh;
+	vertical-align: middle;
+	display: inline-block;
 }
 
 .pageTitle {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    height: 9.6vh;
-    text-transform: capitalize;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	height: 9.6vh;
+	text-transform: capitalize;
 }
 
 .pageTitleWithLogo {
-    background-position: left center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 20.83vw;
+	background-position: left center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 20.83vw;
 }
 
 .headerAudioPlayerButton {
-    color: #52B54B;
+	color: #52B54B;
 }
 
 .headerBackButton {
-    margin-left: -1.6vw;
-    padding: 0 4px;
+	margin-left: -1.6vw;
+	padding: 0 4px;
 }
 
 .mouseIdle .headerBackButton {
-    display: none;
+	display: none;
 }
 
 .headerButton {
-    vertical-align: middle;
-    margin: 0 .25em;
+	vertical-align: middle;
+	margin: 0 .25em;
 }
 
 .searchButtonContainer {
-    margin-right: .5em;
-    margin-left: .5em;
+	margin-right: .5em;
+	margin-left: .5em;
 }
 
 .headerUserButton img {
-    border-radius: 1000px;
+	border-radius: 1000px;
 }
 
 .skinContainer {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* Undo style applied by the core */
-    height: auto;
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	/* Undo style applied by the core */
+	height: auto;
 }
 
 .skinHeader {
-    /* This will ensure it is on top of the main body */
-    z-index: 1;
-    /* padding-top: 3vh; */
-    /* padding-bottom: 2.4vh; */
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 11vh;
+	/* This will ensure it is on top of the main body */
+	z-index: 1;
+	/* padding-top: 3vh; */
+	/* padding-bottom: 2.4vh; */
+	display: flex;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 11vh;
 }
 
 .skinBody {
-    height: 100%;
+	height: 100%;
 }
 
 .headerLeft {
-    margin-right: auto;
-    margin-left: 2.3%;
-    display: flex;
-    align-items: center;
+	margin-right: auto;
+	margin-left: 2.3%;
+	display: flex;
+	align-items: center;
 }
 
 .headerRight {
-    margin-left: auto;
-    margin-right: 2.3%;
-    display: flex;
-    align-items: center;
+	margin-left: auto;
+	margin-right: 2.3%;
+	display: flex;
+	align-items: center;
 }
 
 .headerClock {
-    margin: 0;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 1em;
+	margin: 0;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 1em;
 	font-size: 150%;
 }
 
 .externalPageContainer {
-    padding-top: 0;
-    position: absolute;
-    top: 11vh;
-    left: 0;
-    right: 0;
-    bottom: 0;
+	padding-top: 0;
+	position: absolute;
+	top: 11vh;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 .pageContainer {
-    padding-top: 11vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    display: -ms-flex;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	padding-top: 11vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .centeredPageContent {
-    width: 60%;
-    margin: 5vh auto auto;
+	width: 60%;
+	margin: 5vh auto auto;
 }
 
 .itemScrollFrame.scrollFrameX .scrollSlider {
-    padding-left: 4.5%;
+	padding-left: 4.5%;
 }
 
 .userViewNames {
-    /* Somehow this resolves the issue of the content getting distorted 
+	/* Somehow this resolves the issue of the content getting distorted 
         https://github.com/MediaBrowser/Emby.Theater.Windows/issues/270
     */
-    /*overflow: hidden;*/
+	/*overflow: hidden;*/
 }
 
 .userViewNames {
-    padding-left: 3.75%;
+	padding-left: 3.75%;
 }
 
 .itemScrollFrame.scrollFrameX {
-    overflow: hidden;
+	overflow: hidden;
 }
 
-    .itemScrollFrame.scrollFrameX .scrollSlider {
-        padding-bottom: 3vh;
-        padding-top: 3vh;
-    }
+	.itemScrollFrame.scrollFrameX .scrollSlider {
+		padding-bottom: 3vh;
+		padding-top: 3vh;
+	}
 
-    .itemScrollFrame.scrollFrameX.noTopPadding .scrollSlider {
-        padding-top: 2.74vh;
-    }
+	.itemScrollFrame.scrollFrameX.noTopPadding .scrollSlider {
+		padding-top: 2.74vh;
+	}
 
 .tabbedPageContainer {
-    align-items: initial;
-    justify-content: initial;
+	align-items: initial;
+	justify-content: initial;
 }
 
 .verticalPageContainer {
-    display: block;
-    width: 97%;
-    margin: auto;
+	display: block;
+	width: 97%;
+	margin: auto;
 }
 
 .itemScrollFrame.scrollFrameY {
-    height: 100%;
+	height: 100%;
 }
 
 .scrollFrameY > .scrollSlider {
-    padding: 0 2%;
+	padding: 0 2%;
 }
 
 .centeredPageContent h1, .horizontalPageContent h1 {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 .horizontalPageContent {
-    width: 100%;
+	width: 100%;
 }
 
 .scrollFrameY {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .scrollFrameX .scrollSlider {
-    white-space: nowrap !important;
+	white-space: nowrap !important;
 }
 
 .scrollX {
-    overflow-y: hidden;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-    position: relative;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+	white-space: nowrap;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+	position: relative;
 }
 
-    .scrollX::-webkit-scrollbar {
-        height: 0 !important;
-        display: none;
-    }
+	.scrollX::-webkit-scrollbar {
+		height: 0 !important;
+		display: none;
+	}
 
 ::-webkit-scrollbar {
-    width: 1vh;
-    height: 1vh;
+	width: 1vh;
+	height: 1vh;
 }
 
 ::-webkit-scrollbar-button:start:decrement,
 ::-webkit-scrollbar-button:end:increment {
-    display: none;
+	display: none;
 }
 
 ::-webkit-scrollbar-track-piece {
-    background-color: #3b3b3b;
+	background-color: #3b3b3b;
 }
 
 ::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
-    -webkit-border-radius: 2px;
-    background: #888 no-repeat center;
+	-webkit-border-radius: 2px;
+	background: #888 no-repeat center;
 }
 
 .cardColumn {
-    display: inline-block;
-    vertical-align: top;
+	display: inline-block;
+	vertical-align: top;
 }
 
-    .cardColumn .card:not(.hide) {
-        display: block !important;
-    }
+	.cardColumn .card:not(.hide) {
+		display: block !important;
+	}
 
 .userViewNames h2 {
-    margin-top: 0;
-    margin-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .userViewNames .btnUserViewHeader {
-    min-width: initial;
-    text-transform: none !important;
-    margin-top: 0;
-    padding-top: 0;
-    padding-bottom: .2em;
-    font-size: 106%;
+	min-width: initial;
+	text-transform: none !important;
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: .2em;
+	font-size: 106%;
 }
 
 .userViewButtonText {
-    font-size: 110%;
+	font-size: 110%;
 }
 
 .listNumbers {
-    position: fixed;
-    bottom: 2.5%;
-    right: 1.5%;
+	position: fixed;
+	bottom: 2.5%;
+	right: 1.5%;
 }
 
-    .listNumbers .selectedIndex {
-        color: #4CAF50;
-    }
+	.listNumbers .selectedIndex {
+		color: #4CAF50;
+	}
 
 .horizontalSection {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 1.25em;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 1.25em;
 }
 
 .sectionTitle {
-    font-size: 90%;
-    padding-left: .1em;
+	font-size: 90%;
+	padding-left: .1em;
 }
 
 .mediaInfoItem {
-    display: inline-block;
-    margin: 0 1em 0 0;
+	display: inline-block;
+	margin: 0 1em 0 0;
 }
 
 iron-icon.mediaInfoItem {
-    width: 4vh;
-    height: 4vh;
-    margin-right: .6em;
+	width: 4vh;
+	height: 4vh;
+	margin-right: .6em;
 }
 
 .mediaInfoItem:last-child {
-    margin-right: 0;
+	margin-right: 0;
 }
 
 paper-item-body .paperIconItemMediaInfo {
-    margin: .5em 0;
-    display: flex;
-    align-items: center;
+	margin: .5em 0;
+	display: flex;
+	align-items: center;
 }
 
-    paper-item-body .paperIconItemMediaInfo .starRatingContainer {
-        margin-left: -3px;
-    }
+	paper-item-body .paperIconItemMediaInfo .starRatingContainer {
+		margin-left: -3px;
+	}
 
 h2.listItemTitle {
-    margin: 0;
+	margin: 0;
 }
 
 .starRatingContainer {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
-    padding-top: 0;
-    padding-bottom: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
-    .starRatingContainer iron-icon {
-        width: 3.4vh;
-        height: 3.4vh;
-        color: #CB272A;
-    }
+	.starRatingContainer iron-icon {
+		width: 3.4vh;
+		height: 3.4vh;
+		color: #CB272A;
+	}
 
 paper-item-body .overview {
-    white-space: normal;
+	white-space: normal;
 }
 
 .selectedItemInfo {
-    position: fixed;
-    bottom: .5%;
-    left: 0;
-    right: 10%;
-    max-width: 60%;
-    font-size: 84%;
-    color: #ccc;
-    /*position: relative;
+	position: fixed;
+	bottom: .5%;
+	left: 0;
+	right: 10%;
+	max-width: 60%;
+	font-size: 84%;
+	color: #ccc;
+	/*position: relative;
     margin: auto;*/
 }
 
 .homePageContainer .selectedItemInfo {
-    right: 2%;
-    bottom: 2.5%;
+	right: 2%;
+	bottom: 2.5%;
 }
 
 .selectedItemInfo h2 {
-    margin: 0;
+	margin: 0;
 }
 
 .selectedItemMediaInfo {
-    display: flex;
-    align-items: center;
-    position: relative;
+	display: flex;
+	align-items: center;
+	position: relative;
 }
 
-    .selectedItemMediaInfo iron-icon {
-        width: 2.96vh;
-        height: 2.96vh;
-    }
+	.selectedItemMediaInfo iron-icon {
+		width: 2.96vh;
+		height: 2.96vh;
+	}
 
-    .selectedItemMediaInfo .starRatingContainer iron-icon {
-        width: 2.96vh;
-        height: 2.96vh;
-    }
+	.selectedItemMediaInfo .starRatingContainer iron-icon {
+		width: 2.96vh;
+		height: 2.96vh;
+	}
 
 .selectedItemInfoInnerWithLogo {
-    padding-left: 18%;
+	padding-left: 18%;
 }
 
 .selectedItemInfoLogo {
-    position: absolute;
-    top: 12.5%;
-    width: 16%;
-    bottom: 12.5%;
-    left: 0;
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: contain;
+	position: absolute;
+	top: 12.5%;
+	width: 16%;
+	bottom: 12.5%;
+	left: 0;
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: contain;
 }
 
 .selectedItemInfoInner > div {
-    white-space: nowrap;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;	
+	white-space: nowrap;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .verticalItemsContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
-    .verticalItemsContainer .backdropCard {
-        width: 25%;
-    }
+	.verticalItemsContainer .backdropCard {
+		width: 25%;
+	}
 
-    .verticalItemsContainer .squareCard {
-        width: 16.66666666666666667%;
-    }
+	.verticalItemsContainer .squareCard {
+		width: 16.66666666666666667%;
+	}
 
-    .verticalItemsContainer .portraitCard {
-        width: 16.66666666666666667%;
-    }
+	.verticalItemsContainer .portraitCard {
+		width: 16.66666666666666667%;
+	}
 
-    .verticalItemsContainer .personCard {
-        width: 14.285714285714285714285714285714%;
-    }
+	.verticalItemsContainer .personCard {
+		width: 14.285714285714285714285714285714%;
+	}
 
 .horizontalPageContent .squareCard .cardImageContainer {
-    width: 20.83vh;
-    height: 20.83vh;
+	width: 20.83vh;
+	height: 20.83vh;
 }
 
 .horizontalPageContent .backdropCard .cardImageContainer {
-    width: 37.04vh;
-    height: 20.83vh;
+	width: 37.04vh;
+	height: 20.83vh;
 }
 
 .horizontalPageContent .portraitCard .cardImageContainer {
-    width: 21.02vh;
-    height: 31.57vh;
+	width: 21.02vh;
+	height: 31.57vh;
 }
 
 .homePageContent .squareCard .cardImageContainer {
-    width: 21.85vh;
-    height: 21.85vh;
+	width: 21.85vh;
+	height: 21.85vh;
 }
 
 .homePageContent .backdropCard .cardImageContainer {
-    width: 38.89vh;
-    height: 21.85vh;
+	width: 38.89vh;
+	height: 21.85vh;
 }
 
 .homePageContent .portraitCard .cardImageContainer {
-    width: 21.94vh;
-    height: 32.96vh;
+	width: 21.94vh;
+	height: 32.96vh;
 }
 
 .listPageContent .squareCard .cardImageContainer {
-    width: 21.5vh;
-    height: 21.5vh;
+	width: 21.5vh;
+	height: 21.5vh;
 }
 
 .listPageContent .backdropCard .cardImageContainer {
-    width: 38.222vh;
-    height: 21.5vh;
+	width: 38.222vh;
+	height: 21.5vh;
 }
 
 .listPageContent .portraitCard .cardImageContainer {
-    width: 21.7333vh;
-    height: 32.6vh;
+	width: 21.7333vh;
+	height: 32.6vh;
 }
 
 .horizontalPageContent .loginSquareCard {
-    width: 18vw;
-    flex-shrink: 0;
-    display: inline-block;
+	width: 18vw;
+	flex-shrink: 0;
+	display: inline-block;
 }
 
 .paper-progress-0 #progressContainer.paper-progress, .paper-progress-0 .indeterminate.paper-progress:after {
-    height: .56vh;
+	height: .56vh;
 }
 
 paper-slider #progressContainer {
-    height: .56vh !important;
+	height: .56vh !important;
 }
 
 .itemProgressBar {
-    height: .56vh;
+	height: .56vh;
 }
 
 .itemProgressBarForeground {
-    background-color: #52B54B !important;
+	background-color: #52B54B !important;
 }
 
 paper-slider #sliderKnob {
-    width: 44px !important;
-    height: 44px !important;
-    top: -4px !important;
+	width: 44px !important;
+	height: 44px !important;
+	top: -4px !important;
 }
 
 paper-slider:hover #sliderKnob {
-    display: block;
+	display: block;
 }
 
 .playlistPageContainer {
-    display: block;
-    width: 70%;
-    margin: 0 auto 0;
-    bottom: 0;
+	display: block;
+	width: 70%;
+	margin: 0 auto 0;
+	bottom: 0;
 }
 
 .playlistIndexIndicatorImage {
-    background-size: initial !important;
-    background-image: url(images/equalizer_white.gif) !important;
+	background-size: initial !important;
+	background-image: url(images/equalizer_white.gif) !important;
 }
 
 .repeatActive {
-    color: #52B54B;
+	color: #52B54B;
 }
 
 .criticRatingFresh {
-    padding-left: 3.15vh;
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: auto 2.6vh;
-    background-image: url(images/fresh.png);
+	padding-left: 3.15vh;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: auto 2.6vh;
+	background-image: url(images/fresh.png);
 }
 
 .criticRatingRotten {
-    padding-left: 3.15vh;
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: auto 2.6vh;
-    background-image: url(images/rotten.png);
+	padding-left: 3.15vh;
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: auto 2.6vh;
+	background-image: url(images/rotten.png);
 }
 
 .listItemsMoreButtonContainer {
-    text-align: right;
+	text-align: right;
 }
 
 .listItemsMoreButton {
-    margin: .25em .25em .25em 0;
-    padding: .3em .7em;
-    font-size: 84%;
-    min-width: initial;
-    margin-left: auto;
+	margin: .25em .25em .25em 0;
+	padding: .3em .7em;
+	font-size: 84%;
+	min-width: initial;
+	margin-left: auto;
 }
 
 .selectedItemPanel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 18%;
-    background-color: rgb(20, 20, 20);
-    z-index: 1;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 18%;
+	background-color: rgb(20, 20, 20);
+	z-index: 1;
 }
 
 .selectedItemPanelImage {
-    height: 18%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+	height: 18%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 .selectedItemPanelContent {
-    padding: 1em;
+	padding: 1em;
 }
 
 .listPageButtons {
-    text-align: center;
-    margin-bottom: 1.5em;
+	text-align: center;
+	margin-bottom: 1.5em;
 }
 
-    .listPageButtons paper-button {
-        padding: .2em .6em .35em;
-        text-transform: none;
-        font-size: 86%;
-    }
+	.listPageButtons paper-button {
+		padding: .2em .6em .35em;
+		text-transform: none;
+		font-size: 86%;
+	}
 
 
 paper-slider.noKnob #sliderKnob {
-    display: block;
+	display: block;
 }
 
 paper-slider.noKnob:hover #sliderKnob {
-    display: block;
+	display: block;
 }
 
 .verticalSection {
-    margin-bottom: 6.5vh;
+	margin-bottom: 6.5vh;
 }
 
-    .verticalSection > h2 {
-        margin-bottom: .25em;
-    }
+	.verticalSection > h2 {
+		margin-bottom: .25em;
+	}
 
 .mainSection .itemPageButtons paper-button, paper-button.mini {
-    padding: .25em .6em .4em;
-    font-size: 90%;
-    text-transform: none;
+	padding: .25em .6em .4em;
+	font-size: 90%;
+	text-transform: none;
 }
 
 .horizontalItemsContainer {
-    display: flex;
+	display: flex;
 }
+
+.movieSelector paper-icon-item #contentIcon {
+	display: none;
+}
+
+.movieSelector {
+	height: 80%;
+	width: 40%;
+	overflow: hidden;
+	margin-left: 10px;
+	padding-top: 30px;
+	background-color: rgba(6, 6, 6, .45);
+	background-image: -webkit-gradient(linear, 0% 0%, 40% 100%, from(rgba(6, 6, 6, .45)), to(rgba(255, 255, 255, .05)));
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+}
+
+.selectedMovieTitle {
+	width: 40%;
+	clear: both;
+	margin-left: 30%;
+	text-align: center;
+	background-color: rgba(6, 6, 6, .45);
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: outset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.selectedItemContainer {
+	width: 60%;
+	height: 84%;
+	border: 1px solid red;
+	margin-right: 15px;
+	margin-left: 15px;
+	background-color: rgba(6, 6, 6, .45);
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: outset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+}
+
+.selectedItemPoster {
+	width: 38%;
+	height: 72%;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-top: 10px;
+	margin-right: 10px;
+	background-color: rgba(6, 6, 6, .45);
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: outset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+}
+
+.selectedMovieItemInfo {
+	width: 60%;
+	float: left;
+}
+
+.selectedItemContainer .selectedItemMediaInfo {
+	padding-top: 10px;
+	height: 245px;
+	display: block;
+	margin-left: 10px;
+	margin-top: 10px;
+	background-color: rgba(6, 6, 6, .65);
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: outset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+	padding: 15px 15px 15px 15px;
+}
+
+.selectedItemInfoLogoSeries {
+	position: absolute;
+	top: 10%;
+	width: 50%;
+	bottom: 12.5%;
+	left: 27%;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: contain;
+}
+
+.selectedItemInfoLogoSeriesEpisode {
+	position: absolute;
+	top: 15%;
+	width: 76%;
+	bottom: 12.5%;
+	left: 10%;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: contain;
+}
+
+.selectedItemOverview {
+	padding-top: 10px;
+	height: 580px;
+	border: 1px solid yellow;
+	display: block;
+	margin-left: 10px;
+	margin-top: 10px;
+	background-color: rgba(6, 6, 6, .65);
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: outset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+	overflow: hidden;
+	padding: 15px 15px 15px 15px;
+	text-overflow: ellipsis;
+	box-sizing: border-box;
+}
+
+.movieMediaInfoItem {
+	display: flex;
+	margin: 0 1em 0 0;
+}
+
+.RRatedInfo {
+	background-image: url(images/R.svg);
+	width: 100px;
+	height: 100px;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.PGRatedInfo {
+	background-image: url(images/PG.svg);
+	width: 100px;
+	height: 100px;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.PG-13RatedInfo {
+	background-image: url(images/PG-13.svg);
+	width: 100px;
+	height: 100px;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.GRatedInfo {
+	background-image: url(images/G.svg);
+	width: 100px;
+	height: 100px;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.selectedMovieItemInfoEpisode {
+	width: 40%;
+	float: left;
+}
+
+.selectedItemPosterEpisode {
+	width: 58%;
+	height: 46%;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-top: 10px;
+	margin-right: 10px;
+	background-color: rgba(6, 6, 6, .45);
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: outset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+}
+
+.selectedItemOverviewEpisode {
+	padding-top: 10px;
+	height: 437px;
+	width: 1230px;
+	display: block;
+	margin-left: 10px;
+	margin-top: 10px;
+	background-color: rgba(6, 6, 6, .65);
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: outset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+	overflow: hidden;
+	padding: 15px 15px 15px 15px;
+	text-overflow: ellipsis;
+	box-sizing: border-box;
+}
+
+.selectedItemMediaInfoEpisode {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+	.selectedItemMediaInfoEpisode iron-icon {
+		width: 2.96vh;
+		height: 2.96vh;
+	}
+
+	.selectedItemMediaInfoEpisode .starRatingContainer iron-icon {
+		width: 2.96vh;
+		height: 2.96vh;
+	}
+
+.selectedItemContainer .selectedItemMediaInfoEpisode {
+	padding-top: 10px;
+	height: 377px;
+	display: block;
+	margin-left: 10px;
+	margin-top: 10px;
+	background-color: rgba(6, 6, 6, .65);
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: outset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+	padding: 15px 15px 15px 15px;
+}
+
+.listNumbersMovies {
+	position: fixed;
+	bottom: 2.5%;
+	right: 1.5%;
+	background-color: rgba(6, 6, 6, .45);
+	border: 3px outset rgba(225,225,225,.25);
+	box-shadow: outset 5px 5px 5px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 5px 5px 5px rgba(0,0,0,0.25);
+	border-radius: 25px;
+	padding: 10px;
+}
+
+	.listNumbersMovies .selectedIndex {
+		color: #4CAF50;
+	}

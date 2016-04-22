@@ -12,12 +12,12 @@ a {
 }
 
     .skinContainer.withBackdrop {
-        background-color: rgba(6, 6, 6, .9);
+        background-color: rgba(6, 6, 6, .2);
         transition: background-color 1000ms ease-out;
     }
 
         .skinContainer.withBackdrop.detailBackdrop {
-            background-color: rgba(6, 6, 6, .8);
+            background-color: rgba(6, 6, 6, .15);
         }
 
 .headerLogo {

@@ -171,13 +171,19 @@ define(['playbackManager', 'pluginManager', 'browser', 'connectionManager', 'eve
                 controller: self.id + '/tv/tv'
             });
 
+            routes.push({
+                path: 'detailList/detailList.html',
+                transition: 'slide',
+                controller: self.id + '/detailList/detailList'
+            });
+
             //routes.push({
             //    path: 'search/search.html',
             //    transition: 'slide',
             //    controller: self.id + '/search/search',
             //    dependencies: [
             //        'css!' + pluginManager.mapPath(self, 'search/search.css'),
-			//		'paper-input',
+            //		'paper-input',
             //        icons
             //    ]
             //});
@@ -280,13 +286,14 @@ define(['playbackManager', 'pluginManager', 'browser', 'connectionManager', 'eve
 
             if (item.IsFolder) {
 
-                if (item.Type != 'Series' && item.Type != 'Season' && item.Type != 'MusicAlbum' && item.Type != 'MusicArtist' && item.Type != 'Playlist' && item.Type != 'BoxSet') {
+                if (item.Type != 'MusicAlbum' && item.Type != 'MusicArtist' && item.Type != 'Playlist' && item.Type != 'BoxSet') {
                     showList = true;
                 }
+                else if( item.Type == 'Series' || item.Type == 'Season' ){showList = true;}
             }
 
             if (showList) {
-                Emby.Page.show(pluginManager.mapRoute(self, 'list/list.html') + '?parentid=' + item.Id, { item: item });
+                Emby.Page.show(pluginManager.mapRoute(self, 'detailList/detailList.html') + '?parentid=' + item.Id, { item: item });
             } else {
                 Emby.Page.show(pluginManager.mapRoute(self, 'item/item.html') + '?id=' + item.Id, { item: item });
             }
